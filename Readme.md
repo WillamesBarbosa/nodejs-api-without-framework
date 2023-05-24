@@ -4,7 +4,7 @@
 
 Esta é a minha primeira API Rest desenvolvida sem a ajuda de nenhum framework.
 
-## Como utilizar 🔄
+## Como utilizar ⚙️
 
 * Primeiro faça um clone do repositório
 ```
@@ -20,7 +20,7 @@ node src/index.js
 
 * Pronto! A API está rodando.
 
-## Requisições
+## Requisições 🔃
 
 ### Rotas
 
