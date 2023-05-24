@@ -8,17 +8,15 @@ module.exports = {
 
         const userSorteds = OrderId(order, users)
 
-        response.writeHead(200, {'content-type': 'application/json'});
-        response.end(JSON.stringify(userSorteds));
+        response.send(200, userSorteds)
     },
 
     getUsersById(request, response){
         const {id} = request.params
         const user = users.find((user)=> user.id === Number(id))
-
-        response.writeHead(200, {'content-type': 'application/json'});
-        response.end(JSON.stringify(user));
-        console.log(request.params)
-        console.log('123')
+       
+        if(!user) return response.send(404, {"error": "not found"})
+        
+        return response.send(200, user)
     }
 }

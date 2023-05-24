@@ -7,15 +7,15 @@ module.exports = {
 
         const productSorteds = OrderId(order, products)
 
-        response.writeHead(200, {'content-type': 'application/json'});
-        response.end(JSON.stringify(productSorteds));
+        response.send(200, productSorteds)
     },
 
     getProductsById(request, response){
         const {id} = request.params;
         const product = products.find((product)=> product.id === Number(id))
 
-        response.writeHead(200, {'content-type': 'application/json'});
-        response.end(JSON.stringify(product));
+        if(!product) return response.send(404, {"error": "not found"})
+
+        return response.send(200, product)
     }
 }
