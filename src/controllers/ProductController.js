@@ -9,5 +9,13 @@ module.exports = {
 
         response.writeHead(200, {'content-type': 'application/json'});
         response.end(JSON.stringify(productSorteds));
+    },
+
+    getProductsById(request, response){
+        const {id} = request.params;
+        const product = products.find((product)=> product.id === Number(id))
+
+        response.writeHead(200, {'content-type': 'application/json'});
+        response.end(JSON.stringify(product));
     }
 }
