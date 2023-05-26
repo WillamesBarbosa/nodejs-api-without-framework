@@ -1,6 +1,6 @@
 const { showHome } = require("./controllers/HomeController");
 const { listProducts, getProductsById } = require("./controllers/ProductController");
-const { listUsers, getUsersById } = require("./controllers/UserController");
+const { listUsers, getUsersById, createUser } = require("./controllers/UserController");
 
 module.exports = [
     {
@@ -14,6 +14,11 @@ module.exports = [
         handler: listProducts
     },
     {
+        endpoint: '/products',
+        method: 'POST',
+        handler: listProducts
+    },
+    {
         endpoint: '/products/:id',
         method: 'GET',
         handler: getProductsById
@@ -22,6 +27,11 @@ module.exports = [
         endpoint: '/users',
         method: 'GET',
         handler: listUsers
+    },
+    {
+        endpoint: '/users',
+        method: 'POST',
+        handler: createUser
     },
     {
         endpoint: '/users/:id',
